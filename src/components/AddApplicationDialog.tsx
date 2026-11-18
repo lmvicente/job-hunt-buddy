@@ -15,10 +15,16 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useState } from "react"
 import { Plus } from "lucide-react"
+import { createNewApplication } from "@/app/actions"
 
 export default function AddApplicationDialog() {
     const [open, setOpen] = useState(false);
     const today = new Date().toISOString().slice(0, 10) // YYYY-MM-DD, UTC
+
+    async function handleSubmit(formData: FormData) {
+  const result = await createNewApplication(formData)
+  if (result?.success) setOpen(false)
+}
     return (
         <>
 
@@ -32,7 +38,7 @@ export default function AddApplicationDialog() {
       </DialogDescription>
     </DialogHeader>
 
-    <form>
+    <form action={handleSubmit}>
       <FieldGroup>
         <Field>
           <FieldLabel htmlFor="companyName">Company</FieldLabel>
