@@ -24,7 +24,7 @@ const FEATURES = [
   {
     icon: MousePointerClick,
     title: "Status in one click",
-    body: "Move an application from Applied to Screening, Interview or Offer without opening a form.",
+    body: "Move an application from Applied to Interview to Offer without opening a form.",
   },
   {
     icon: Lock,
