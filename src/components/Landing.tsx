@@ -39,8 +39,7 @@ export default function Landing() {
       <section className="mx-auto max-w-[1160px] px-5 pt-16 pb-12 text-center sm:px-8 sm:pt-24">
         <FadeIn>
           <span className="inline-flex items-center gap-2 rounded-full bg-card px-3 py-1 text-[13px] text-muted-foreground shadow-(--shadow-panel)">
-            <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
-            A calmer job search
+            A more organized job search
           </span>
           <h1 className="mx-auto mt-6 max-w-[14ch] text-[40px] leading-[1.05] font-semibold tracking-[-0.035em] sm:text-[60px]">
             Every application, in one place.
@@ -131,7 +130,7 @@ export default function Landing() {
       </section>
 
       {/* Closing call to action */}
-      <section className="mx-auto max-w-[1000px] px-5 pb-20 sm:px-8">
+      <section className="mx-auto max-w-[1000px] px-5 pb-20 pt-10 sm:px-8">
         <div className="flex flex-col items-center gap-5 rounded-[22px] bg-card px-6 py-12 text-center shadow-(--shadow-panel)">
           <h2 className="text-[26px] font-semibold tracking-[-0.025em]">Start tracking your applications</h2>
           <p className="max-w-[42ch] text-muted-foreground">Create an account and log your first application.</p>
