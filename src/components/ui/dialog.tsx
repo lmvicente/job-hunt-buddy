@@ -31,7 +31,7 @@ function DialogOverlay({
     <DialogPrimitive.Backdrop
       data-slot="dialog-overlay"
       className={cn(
-        "fixed inset-0 isolate z-50 bg-[#040e11]/60 duration-200 supports-backdrop-filter:backdrop-blur-sm data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
+        "fixed inset-0 isolate z-50 bg-[#1c1b1a]/30 supports-backdrop-filter:backdrop-blur-[2px] data-open:animate-in data-open:fade-in-0 data-open:duration-200 data-open:ease-out data-closed:animate-out data-closed:fade-out-0 data-closed:duration-150 data-closed:ease-in dark:bg-black/50",
         className
       )}
       {...props}
@@ -53,7 +53,7 @@ function DialogContent({
       <DialogPrimitive.Popup
         data-slot="dialog-content"
         className={cn(
-          "fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-6 overflow-hidden rounded-2xl bg-[#0f282f]/85 p-6 text-sm text-popover-foreground shadow-[0_0_80px_-20px_rgba(2,239,240,0.35),0_30px_60px_-30px_rgba(0,0,0,0.8)] ring-1 ring-[#c2fbfb]/10 backdrop-blur-2xl duration-200 outline-none before:pointer-events-none before:absolute before:inset-x-10 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-[#02eff0]/70 before:to-transparent after:pointer-events-none after:absolute after:-top-24 after:left-1/2 after:h-40 after:w-72 after:-translate-x-1/2 after:rounded-full after:bg-[#02eff0]/15 after:blur-3xl sm:max-w-md data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+          "fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-6 rounded-2xl bg-popover p-6 text-sm text-popover-foreground shadow-(--shadow-popover) outline-none sm:max-w-md data-open:animate-in data-open:fade-in-0 data-open:zoom-in-97 data-open:duration-200 data-open:ease-out data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-97 data-closed:duration-150 data-closed:ease-in motion-reduce:data-open:zoom-in-100 motion-reduce:data-closed:zoom-out-100",
           className
         )}
         {...props}
@@ -121,7 +121,7 @@ function DialogTitle({ className, ...props }: DialogPrimitive.Title.Props) {
   return (
     <DialogPrimitive.Title
       data-slot="dialog-title"
-      className={cn("font-heading text-lg leading-none font-medium tracking-tight", className)}
+      className={cn("font-heading text-[17px] leading-none font-semibold tracking-[-0.01em]", className)}
       {...props}
     />
   )

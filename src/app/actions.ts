@@ -37,7 +37,6 @@ export async function updateApplication(applicationId: number, formData: FormDat
       resumeUrl: (formData.get("resumeUrl") as string) || null,
       notes: (formData.get("notes") as string) || null,
       updatedAt: new Date(),
-      appliedAt: new Date(formData.get("appliedAt") as string),
       }
   ).where(and(
     eq(applications.id, applicationId),

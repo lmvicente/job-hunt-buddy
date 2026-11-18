@@ -4,9 +4,8 @@ import { index, pgEnum, pgTable, serial, text, timestamp } from "drizzle-orm/pg-
 
 export const applicationStatus = pgEnum("application_status", [
   "Applied",
-  "1st Interview",
-  "2nd Interview",
-  "3rd Interview",  
+  "Screening",
+  "Interview",
   "Offer",
   "Rejected",
   "Withdrawn",

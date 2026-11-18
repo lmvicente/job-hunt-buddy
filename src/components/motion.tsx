@@ -1,16 +1,23 @@
 "use client"
-import { motion, useReducedMotion, type HTMLMotionProps } from "framer-motion"
+import { MotionConfig, motion, type HTMLMotionProps } from "framer-motion"
 
-type FadeInProps = HTMLMotionProps<"div"> & { delay?: number; y?: number }
+// Wraps the app so every motion component respects the OS "Reduce motion" setting.
+export function MotionProvider({ children }: { children: React.ReactNode }) {
+  return <MotionConfig reducedMotion="user">{children}</MotionConfig>
+}
 
-// Soft fade + rise + de-blur on mount. Respects reduced-motion settings.
-export function FadeIn({ delay = 0, y = 14, ...props }: FadeInProps) {
-  const reduce = useReducedMotion()
+// Entrance: from scale 0.97 + opacity 0 (never from 0), ease-out, under 300ms.
+export const easeOut = [0.23, 1, 0.32, 1] as const
+export const easeIn = [0.4, 0, 1, 1] as const
+
+type FadeInProps = HTMLMotionProps<"div"> & { delay?: number }
+
+export function FadeIn({ delay = 0, ...props }: FadeInProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: reduce ? 0 : y, filter: "blur(6px)" }}
-      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0, scale: 0.97 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.26, delay, ease: easeOut }}
       {...props}
     />
   )
